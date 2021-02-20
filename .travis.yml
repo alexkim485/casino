@@ -1,14 +1,21 @@
 language: cpp
+distro: Xenial
 sudo: false
 script:
     -if [TRAVIS_OS_NAME == linux ]; then ./build.sh --llvm-config=llvm-config --cc=clang --cxx=c++; fi
 
 compiler:
 - clang
-- gcc
 os:
     -linux
 branches:
     only:
         - main
         - "/^v\\d+\\./"
+env:
+    global:
+        -sh=dash
+        - OPENSSL_DIR=$(brew --prefix openssl)
+        - RBXOPT=-Xcodedb.cache.enabled=no
+        - LANG="en_US.UTF-8"
+        - secure: "B1nF6OBo2b2c+BekjbCevjTFmVWOGf2FGRePaaBzgg9vO+YWW2us7ZtmCKtYF1NjdSRptFiy7PyW6eAcviVnMqVl9y3aTwgIZbMYdeuuMyfy76T6t58o4P4jLn9+cfZHxVZjp96vQnR3Aozcx0JnsvRi0CNOTC3+166u7mLYkL1qKrU+OxLc2kQ8c7Z8ROf/k46d6jYtrYm/7Dw2XvEFNATgPHRcCgBYVLqKTfMlSPCJJNB+GBYpqreCcEVBnrCEsc4PmFujlUEqa9ebsbJLerA9lPGd8uKtWR4OEzo5gKLWGDBmX6cOJYRmrBFmQKuPAD157pYxOKeg9jU4vl0HqXrfPxadeKNzxmgp+TVN/38TtXSiSwqsDlf1hTDl2Zoa8u5P3sDXWA075Y4lAEKpK+m0ZwWCTkl6yZKgnaYpFVRLkKaHMqDNSsff5FAj94CCSFDRRKrw5cOFrI7PoDKu99gd8LaqiR5s8XKiI9k/e1RbxedZB9UJnaFL6kyVgToxqCwpygaxUZsjBzrmwVPm9ALkm8HLNBHPcPhHl8cVU6waN9h8mqwYgf/EBXnUseybs0XTckt3Hv5UmMXcdP3T8QUUJjvaKpT2w0tPE8iILuPPSs6r24Kb9qXmwPkJuPYZgVR3XjR+jS6R/JBXC3FffgOAEY8XlC+mZ2zET0RjYDo="
