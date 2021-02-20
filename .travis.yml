@@ -1,8 +1,8 @@
 language: cpp
 distro: Xenial
 sudo: false
-script:
-    -if [TRAVIS_OS_NAME == linux ]; then ./build.sh --llvm-config=llvm-config --cc=clang --cxx=c++; fi
+#script:
+#    -if [TRAVIS_OS_NAME == linux ]; then ./build.sh --llvm-config=llvm-config --cc=clang --cxx=c++; fi
 
 compiler:
 - clang
@@ -15,7 +15,6 @@ branches:
 env:
     global:
         -sh=dash
-        - OPENSSL_DIR=$(brew --prefix openssl)
         - RBXOPT=-Xcodedb.cache.enabled=no
         - LANG="en_US.UTF-8"
 
