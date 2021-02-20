@@ -1,0 +1,14 @@
+language: cpp
+sudo: false
+script:
+    -if [TRAVIS_OS_NAME == linux ]; then ./build.sh --llvm-config=llvm-config --cc=clang --cxx=c++; fi
+
+compiler:
+- clang
+- gcc
+os:
+    -linux
+branches:
+    only:
+        - main
+        - "/^v\\d+\\./"
