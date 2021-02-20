@@ -30,5 +30,7 @@
 *.exe
 *.out
 *.app
+#
 casino-game.o
 *.vim
+
