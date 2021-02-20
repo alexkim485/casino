@@ -16,17 +16,17 @@ int main()
     cout << "\n\t\t========WELCOME TO CASINO WORLD=======\n\n";
     cout << "\n\nWhat's your Name : ";
     getline(cin, playerName);
-    cout << "\n\nEnter the starting balance to play game : $";
+    cout << "\n\nEnter the starting balance to play game : ksh";
     cin >> balance;
     do
     {
         system("cls");
         rules();
-        cout << "\n\nYour current balance is $ " << balance << "\n";
+        cout << "\n\nYour current balance is ksh " << balance << "\n";
 // Get player's betting balance
         do
         {
-            cout << "Hey, " << playerName<<", enter amount to bet : $";
+            cout << "Hey, " << playerName<<", enter amount to bet : ksh";
             cin >> bettingAmount;
             if(bettingAmount > balance)
                 cout << "Betting balance can't be more than current balance!\n"
@@ -44,16 +44,16 @@ int main()
         dice = rand()%10 + 1;
         if(dice == guess)
         {
-            cout << "\n\nYou are in luck!! You have won Rs." << bettingAmount * 10;
+            cout << "\n\nYou are in luck!! You have won Ksh." << bettingAmount * 10;
             balance = balance + bettingAmount * 10;
         }
         else
         {
-            cout << "Oops, better luck next time !! You lost $ "<< bettingAmount <<"\n";
+            cout << "Oops, better luck next time !! You lost ksh "<< bettingAmount <<"\n";
             balance = balance - bettingAmount;
         }
         cout << "\nThe winning number was : " << dice <<"\n";
-        cout << "\n"<<playerName<<", You have balance of $ " << balance << "\n";
+        cout << "\n"<<playerName<<", You have balance of ksh " << balance << "\n";
         if(balance == 0)
         {
             cout << "You have no money to play ";
@@ -63,7 +63,7 @@ int main()
         cin >> choice;
     }while(choice =='Y'|| choice=='y');
     cout << "\n\n\n";
-    cout << "\n\nThanks for playing the game. Your balance is $ " << balance << "\n\n";
+    cout << "\n\nThanks for playing the game. Your balance is Ksh " << balance << "\n\n";
     return 0;
 }
 void rules()
