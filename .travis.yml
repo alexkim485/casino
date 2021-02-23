@@ -1,6 +1,20 @@
 language: cpp
 distro: Xenial
-sudo: false
+sudo: true
+install:
+		- DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
+        - mkdir -p ${DEPS_DIR} && cd ${DEPS_DIR}
+        - if [[ "${LLVM_VERSION}" == "default" ]]; then LLVM_VERSION=3.9.0; fi
+        - if [[ "${BOOST_VERSION}" == "default" ]]; then BOOST_VERSION=1.63.0; fi
+        - if [[ "${COMPILER}" != "" ]]; then export CXX=${COMPILER}; fi
+
+#     - cd ${TRAVIS_BUILD_DIR}
+#     - wget http://ftp.de.debian.org/debian/pool/main/l/lcov/lcov_1.11.orig.tar.gz
+#     -wget http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.24.0.tar.xz
+#     - tar xf lcov_1.11.orig.tar.gz
+#     - sudo make -C lcov-1.11/ install
+#     - tar xf crosstool-ng-1.24.0.tar.xz
+#     - sudo make -C crosstool-ng-1.24.0/ install
 #script:
 #    -if [TRAVIS_OS_NAME == linux ]; then ./build.sh --llvm-config=llvm-config --cc=clang --cxx=c++; fi
 
@@ -17,4 +31,6 @@ env:
         -sh=dash
         - RBXOPT=-Xcodedb.cache.enabled=no
         - LANG="en_US.UTF-8"
-
+		-secure:  "UPw6sj9vCqoBwtKraAtjei78dS3IHrWv8CQFCnLFTv64yH4BAtykGovLWviVZCtg9n3ixxwQFU5R8yVF6rfJ2mu7g6LfVAcQHZVPFwXIo98ClfxkYjS9UhFCzZ6hXJXJxhrQu3dwS6wk5Lv7qwyrTNKBgYPT7uV475AunDXiswj7eaW6e7Id7ukxXmg/K+H1kZjMs9onKSSLcT5H7MZDvCRurL0+S010c+SgriuCaHAyF5nt7VDPcx7VUGM6gSbO9lt8Msc3mblNweedZKC/5g+tNbv/JYxV3F5yIBxmTpb3URIFgHnGtwiwBZz4666k/OAuHNXTGEFRhQoJxzTu5mFww7HU+jOINgfahVZ2R1xO1sh+8huRAfEJwmTM08WGP/j7ss27M/bzEw89vn+x9bSa98L4c0Eukx6oMw34jmFGTqmFNQbijpdgBZ2r/JCNGu4VtiDYN5Qhr4rNlKV+JAAb8gL+N4HM4mT/50QGGo5B9APX2X75eJhNizKDeG7RgmFq4mEwEtIlHkiYavScdMH+uq51xByPAMcsMyyp0WbXDEH9Lox+hdNSDY4hSVNMrthF6Qug4EVAka4RwWcSSwI1Liyps8ytilqPQq8A//rt8cLt0xN2ilTNTiqhsbJsTPMKhk8yY4MaV/QCAoNg8fppGLWaGm41v1M25Efge1k="
+matrix:
+	-TRAVIS_EMPTY_JOB_WORKAROUND=true
