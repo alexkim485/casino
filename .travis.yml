@@ -1,6 +1,6 @@
 language: cpp
 distro: Xenial
-sudo: true
+sudo: false
 install:
 		- DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
         - mkdir -p ${DEPS_DIR} && cd ${DEPS_DIR}
