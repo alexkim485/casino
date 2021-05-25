@@ -13,7 +13,7 @@ int main()
     int dice; // stores the random number
     char choice;
     srand(time(0)); // "Seed" the random generator
-    cout << "\n\t\t========WELCOME TO CASINO WORLD=======\n\n";
+    cout << "\n\t\t========WELCOME,HELLO FRIEND=======\n\n";
     cout << "\n\nWhat's your Name : ";
     getline(cin, playerName);
     cout << "\n\nEnter the starting balance to play game : ksh";
@@ -69,7 +69,7 @@ int main()
 void rules()
 {
     system("clear");
-    cout << "\t\t======CASINO NUMBER GUESSING RULES!======\n";
+    cout << "\t\t======GUESSING RULES!======\n";
     cout << "\t1. Choose a number between 1 to 10\n";
     cout << "\t2. Winner gets 10 times of the money bet\n";
     cout << "\t3. Wrong bet, and you lose the amount you bet\n\n";
